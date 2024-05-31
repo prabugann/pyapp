@@ -17,9 +17,9 @@ pipeline {
     post {
         always {
             script {
-                sh '''
+                sh """
                 echo "Check console output at ${BUILD_URL} to view the results." | mail -s "Jenkins Build #${BUILD_NUMBER} - ${currentBuild.currentResult}" vgprabu17@gmail.com
-                '''
+                """
             }
         }
     }

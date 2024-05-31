@@ -15,8 +15,12 @@ pipeline {
         }
     }
     post {
-    success {
-      mail to: vgprabu17@gmail.com, subject: ‘The Pipeline success :(‘
+        always {
+            script {
+                sh '''
+                echo "Check console output at ${BUILD_URL} to view the results." | mail -s "Jenkins Build #${BUILD_NUMBER} - ${currentBuild.currentResult}" vgprabu17@gmail.com
+                '''
+            }
+        }
     }
-  }
 }

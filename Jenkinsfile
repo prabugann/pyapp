@@ -14,4 +14,9 @@ pipeline {
             }
         }
     }
+    post {
+    success {
+      mail to: vgprabu17@gmail.com, subject: ‘The Pipeline success :(‘
+    }
+  }
 }
